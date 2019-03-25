@@ -5,6 +5,22 @@
     <title>Products</title>
 </head>
 <body>
+<script>
+    $(document).ready(function () {
+        (function ($) {
+            $('#genres_id_search').keyup(function () {
+
+                let rex = new RegExp($(this).val(), 'i');
+                $('.searchable tr').hide();
+                $('.searchable tr').filter(function () {
+                    return rex.test($(this).text());
+                }).show();
+            })
+        }(jQuery));
+    });
+</script>
+<input id="genres_id_search" type="text" name="search_genres" autocomplete="off"
+       placeholder="Search Product">
 <table>
     <thead>
     <tr>
@@ -13,12 +29,27 @@
     </tr>
     </thead>
     <!--/*@thymesVar id="products" type="List<Product>"*/-->
-    <tbody th:each="product : ${products}">
+    <tbody th:each="product : ${page.content}" class="searchable">
     <tr>
-        <td>${product.name}</td>
-        <td>${product.price}</td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
     </tr>
     </tbody>
 </table>
+<th:block th:each="i: ${#numbers.sequence(0, page.totalPages - 1)}">
+    <span th:if="${page.number == i}" class="selected">[[${i}+1]]</span>
+    <span th:unless="${page.number == i}">
+             <a th:href="@{/product/(page=${i},size=${page.size})}">[[${i}+1]]</a>
+        </span>
+</th:block>
+<span th:if="${page.hasNext()}">
+        <a th:href="@{/product/(page=${page.number+1},size=${page.size})}">Next</a>
+</span>
+<p>
+    Total Pages:
+    <small th:text="${page.totalPages}"></small>
+</p>
 </body>
+<script type="text/javascript" th:fragment="content"
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </html>

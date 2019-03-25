@@ -85,7 +85,7 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>${flyway.version}</version>
                 <configuration>
-                    <url>jdbc:postgresql://192.168.99.100:5432/pagination</url>
+                    <url>jdbc:postgresql://localhost:5432/pagination</url>
                     <user>postgres</user>
                     <password>psql123</password>
                 </configuration>

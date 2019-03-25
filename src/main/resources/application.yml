@@ -5,7 +5,7 @@ spring:
     active: dev
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://192.168.99.100:5432/pagination
+    url: jdbc:postgresql://localhost:5432/pagination
     username: postgres
     password: psql123
   jpa:

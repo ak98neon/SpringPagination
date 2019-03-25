@@ -13,6 +13,6 @@ public class MainPage {
 
     @GetMapping
     public String mainPage() {
-        return "index";
+        return "/index";
     }
 }
