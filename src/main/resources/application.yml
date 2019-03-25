@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: dev
+  profiles:
+    active: dev
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/pagination
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_default: false
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  thymeleaf:
+    cache: false
+    mode: HTML
+    prefix: classpath:/templates
+  devtools:
+    restart:
+      additional-paths: src/main/resources/static/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+server:
+  port: 8080
