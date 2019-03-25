@@ -12,6 +12,7 @@
         <td>Price</td>
     </tr>
     </thead>
+    <!--/*@thymesVar id="products" type="List<Product>"*/-->
     <tbody th:each="product : ${products}">
     <tr>
         <td>${product.name}</td>

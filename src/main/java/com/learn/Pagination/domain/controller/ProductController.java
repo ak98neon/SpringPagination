@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author Artem Kudria
  */
 @Controller
-@RequestMapping("/product")
+@RequestMapping(value = "/product")
 public class ProductController {
     private static final int PAGE_NUMBER = 0;
     private static final int SIZE_PAGE = 5;
@@ -25,11 +25,11 @@ public class ProductController {
         this.productRepository = productRepository;
     }
 
-    @GetMapping("/")
+    @GetMapping(value = "/")
     public String getAll(final Model model) {
         PageRequest pageRequest = PageRequest.of(PAGE_NUMBER, SIZE_PAGE);
         Page<Product> productList = productRepository.findAll(pageRequest);
         model.addAttribute("products", productList.getContent());
-        return "products.html";
+        return "products";
     }
 }
