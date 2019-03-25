@@ -2,13 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <script type="text/javascript" th:fragment="content"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <title>Products</title>
 </head>
 <body>
 <script>
     $(document).ready(function () {
         (function ($) {
-            $('#genres_id_search').keyup(function () {
+            $('#id_search').keyup(function () {
 
                 let rex = new RegExp($(this).val(), 'i');
                 $('.searchable tr').hide();
@@ -19,7 +21,7 @@
         }(jQuery));
     });
 </script>
-<input id="genres_id_search" type="text" name="search_genres" autocomplete="off"
+<input id="id_search" type="text" name="search_genres" autocomplete="off"
        placeholder="Search Product">
 <table>
     <thead>
@@ -31,7 +33,9 @@
     <!--/*@thymesVar id="products" type="List<Product>"*/-->
     <tbody th:each="product : ${page.content}" class="searchable">
     <tr>
+        <!--/*@thymesVar id="name" type="java.lang.String"*/-->
         <td th:text="${product.name}"></td>
+        <!--/*@thymesVar id="price" type="java.lang.Double"*/-->
         <td th:text="${product.price}"></td>
     </tr>
     </tbody>
@@ -50,6 +54,4 @@
     <small th:text="${page.totalPages}"></small>
 </p>
 </body>
-<script type="text/javascript" th:fragment="content"
-        src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </html>
