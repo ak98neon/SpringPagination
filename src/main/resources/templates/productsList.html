@@ -30,9 +30,9 @@
         <td>Price</td>
     </tr>
     </thead>
+    <tbody class="searchable">
     <!--/*@thymesVar id="products" type="List<Product>"*/-->
-    <tbody th:each="product : ${page.content}" class="searchable">
-    <tr>
+    <tr th:each="product : ${page.content}">
         <!--/*@thymesVar id="name" type="java.lang.String"*/-->
         <td th:text="${product.name}"></td>
         <!--/*@thymesVar id="price" type="java.lang.Double"*/-->
