@@ -30,6 +30,6 @@ public class ProductController {
         PageRequest pageRequest = PageRequest.of(PAGE_NUMBER, SIZE_PAGE);
         Page<Product> productList = productRepository.findAll(pageRequest);
         model.addAttribute("products", productList.getContent());
-        return "products";
+        return "productsList";
     }
 }
