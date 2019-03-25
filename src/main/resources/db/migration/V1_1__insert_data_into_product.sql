@@ -1,0 +1,10 @@
+INSERT INTO product (name, price) VALUES ('Test', 100.22);
+INSERT INTO product (name, price) VALUES ('Test2', 100.22);
+INSERT INTO product (name, price) VALUES ('Test3', 100.22);
+INSERT INTO product (name, price) VALUES ('Test4', 100.22);
+INSERT INTO product (name, price) VALUES ('Test5', 100.22);
+INSERT INTO product (name, price) VALUES ('Test6', 100.22);
+INSERT INTO product (name, price) VALUES ('Test7', 100.22);
+INSERT INTO product (name, price) VALUES ('Test8', 100.22);
+INSERT INTO product (name, price) VALUES ('Test9', 100.22);
+INSERT INTO product (name, price) VALUES ('Test10', 100.22);
