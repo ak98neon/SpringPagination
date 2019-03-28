@@ -40,8 +40,8 @@ public class ProductService {
     /**
      * @see ProductRepository#findAll(Sort)
      */
-    public Page<Product> getAll(PageRequest pageRequest) {
-        return productRepository.findAll(pageRequest);
+    public Page<Product> getAll(Pageable pageable) {
+        return productRepository.findAll(pageable);
     }
 
     /**
