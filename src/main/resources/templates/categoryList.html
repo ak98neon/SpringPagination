@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" th:fragment="content"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <title>Products</title>
+</head>
+<body>
+<script>
+    $(document).ready(function () {
+        (function ($) {
+            $('#id_search').keyup(function () {
+
+                let rex = new RegExp($(this).val(), 'i');
+                $('.searchable tr').hide();
+                $('.searchable tr').filter(function () {
+                    return rex.test($(this).text());
+                }).show();
+            })
+        }(jQuery));
+    });
+</script>
+<input id="id_search" type="text" name="search_genres" autocomplete="off"
+       placeholder="Search Category">
+<table>
+    <thead>
+    <tr>
+        <td>Name</td>
+        <td>Price</td>
+    </tr>
+    </thead>
+    <tbody class="searchable">
+    <!--/*@thymesVar id="products" type="List<Product>"*/-->
+    <tr th:each="product : ${categories.content}">
+        <!--/*@thymesVar id="name" type="java.lang.String"*/-->
+        <td th:text="${product.name}"></td>
+    </tr>
+    </tbody>
+</table>
+<th:block th:each="i: ${#numbers.sequence(0, categories.totalPages - 1)}">
+    <span th:if="${categories.number == i}" class="selected">[[${i}+1]]</span>
+    <span th:unless="${categories.number == i}">
+             <a th:href="@{/product/(page=${i},size=${categories.size})}">[[${i}+1]]</a>
+        </span>
+</th:block>
+<span th:if="${categories.hasNext()}">
+        <a th:href="@{/product/(page=${categories.number+1},size=${categories.size})}">Next</a>
+</span>
+<p>
+    Total Pages:
+    <small th:text="${categories.totalPages}"></small>
+</p>
+</body>
+</html>
