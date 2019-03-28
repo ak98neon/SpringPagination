@@ -12,7 +12,18 @@ import java.util.List;
  */
 @Repository
 public interface ProductRepository extends PagingAndSortingRepository<Product, Long> {
+    /**
+     * Find all product by price
+     * @param price Double
+     * @param pageable Pageable for request all product
+     * @return List products
+     */
     List<Product> findAllByPrice(Double price, Pageable pageable);
 
+    /**
+     * Find product by name
+     * @param name String name product
+     * @return Product entity
+     */
     Product findByName(String name);
 }
