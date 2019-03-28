@@ -4,5 +4,6 @@ CREATE TABLE product
 (
   id BIGSERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL UNIQUE,
-  price float NOT NULL
+  price float NOT NULL,
+  category_id BIGINT NOT NULL
 );
