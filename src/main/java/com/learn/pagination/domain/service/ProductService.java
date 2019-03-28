@@ -32,4 +32,8 @@ public class ProductService {
     public Page<Product> getAll(PageRequest pageRequest) {
         return productRepository.findAll(pageRequest);
     }
+
+    public Product getByName(String name) {
+        return productRepository.findByName(name);
+    }
 }
