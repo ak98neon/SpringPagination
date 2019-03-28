@@ -27,14 +27,15 @@
     <thead>
     <tr>
         <td>Name</td>
-        <td>Price</td>
+        <td>Count Product</td>
     </tr>
     </thead>
     <tbody class="searchable">
     <!--/*@thymesVar id="products" type="List<Product>"*/-->
-    <tr th:each="product : ${categories.content}">
+    <tr th:each="category : ${categories.content}">
         <!--/*@thymesVar id="name" type="java.lang.String"*/-->
-        <td th:text="${product.name}"></td>
+        <td th:text="${category.name}"></td>
+        <td th:text="${#lists.size(category.products)}"></td>
     </tr>
     </tbody>
 </table>
