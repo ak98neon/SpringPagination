@@ -4,10 +4,10 @@ spring:
   profiles:
     active: dev
   datasource:
-    driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/pagination
-    username: postgres
-    password: psql123
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:pagination;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
   jpa:
     hibernate:
       ddl-auto: validate
